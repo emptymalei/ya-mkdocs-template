@@ -1,0 +1,1 @@
+# ya-mkdocs-template
