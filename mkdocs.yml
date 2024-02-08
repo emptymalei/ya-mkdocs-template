@@ -1,0 +1,109 @@
+# mkdocs.yml
+site_name: "YA MKDocs Template"
+site_author: "LM"
+site_description: "Yet Another MKDocs Template"
+site_url: "https://emptymalei.github.io/ya-mkdocs-template"
+repo_url: "https://github.com/emptymalei/ya-mkdocs-template"
+edit_uri: "blob/main/ya-mkdocs-template/"
+repo_name: "emptymalei/ya-mkdocs-template"
+docs_dir: "docs"
+
+
+theme:
+  name: "material"
+  custom_dir: theme/overrides
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+  palette:
+    - scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/logo_badge.svg
+  logo: assets/logo_badge.svg
+
+
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: "¶"
+  - footnotes
+  - pymdownx.details
+
+
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+
+
+plugins:
+  - autorefs
+  - git-authors
+  - search
+  - tags:
+      tags_file: tags.md
+  - print-site:
+      add_to_navigation: false
+      print_page_title: 'YA MKDocs Template'
+      add_print_site_banner: false
+      # Table of contents
+      add_table_of_contents: true
+      toc_title: 'Table of Contents'
+      toc_depth: 6
+      # Content-related
+      add_full_urls: false
+      enumerate_headings: true
+      enumerate_figures: true
+      include_css: true
+      enabled: true
+      exclude:
+
+
+nav:
+  - "Home": index.md
+  - "Engineering Choices":
+    - engineering/index.md
+  - "About":
+    - "Changelog": meta/changelog.md
